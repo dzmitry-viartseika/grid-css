@@ -1,0 +1,37 @@
+@import "_reset";
+@import "variables";
+
+.grid {
+  display: grid;
+  //grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  // продублируй строку 4 раза с высотой взависимости от контента
+  //grid-template-rows: repeat(4, auto);
+  //
+  grid-template-rows: repeat(4, 200px);
+  grid-gap: 1em;
+
+  &__item {
+    background: $color-green;
+    color: $color-white;
+    padding: 10px;
+    border-radius: $borderRadius;
+
+    &_first {
+      // позиционирование элементов
+      //grid-column-start: 1;
+      // закончится перед 2й колонкой
+      //grid-column-end: 2;
+      //grid-row-start: 1;
+      // закончится перед 4й строкой
+      //grid-row-end: 4;
+      grid-column: 1 / 2;
+      grid-row: 1 / 4;
+    }
+
+    &_fourth {
+      grid-column: 3 / 4;
+      grid-row: 4 / 3;
+    }
+  }
+}
