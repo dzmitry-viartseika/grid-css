@@ -40,10 +40,18 @@
 .lp {
 
   &-header {
+    // 1fr = 25%
+    // minmax(200px минимально, 25%)
+    // min-content - будет растягиваться под минимальный контент
+    //grid-template-columns: 25% min-content 25% 25% 25%;
+    //grid-template-columns: 25% max-content 25% 25% 25%;
+    //grid-template-columns: 25% minmax(max-content, 25%) 25% 25%;
+    // fit-content растягивает но больше 300 не станет
+    //grid-template-columns: 25% fit-content(300px) 25% 25%;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(1, 200px);
-
+    //grid-template-columns: 25% minmax(200px, 25%) 25% 25% 25%;
     &__left {
       background: $color-black;
       grid-row: 1 / 2;
@@ -99,5 +107,43 @@
       grid-template-rows: repeat(2, 300px);
       grid-template-columns: repeat(3, 1fr);
     }
+  }
+}
+
+.app {
+  display: grid;
+  //"... header header" три точки пустота
+  grid-template-areas:
+    "... header header"
+    "left right right"
+    "left footer footer"
+;
+
+  &-header {
+    grid-area: header;
+    height: 80px;
+    background: pink;
+  }
+
+  &-content {
+
+    &__left {
+      grid-area: left;
+      background: yellow;
+      height: 100%;
+    }
+
+    &__right {
+      grid-area: right;
+      background: red;
+      height: 100%;
+      min-height: 600px;
+    }
+  }
+
+  &-footer {
+    grid-area: footer;
+    height: 100px;
+    background: green;
   }
 }
