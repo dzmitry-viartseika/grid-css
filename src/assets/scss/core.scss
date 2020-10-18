@@ -118,6 +118,9 @@
     "left right right"
     "left footer footer"
 ;
+  // управление контентов в ячейке  default = stretch на всю ширину; center center end;
+  justify-items: stretch;
+  //justify-content: space-between;
 
   &-header {
     grid-area: header;
@@ -145,5 +148,9 @@
     grid-area: footer;
     height: 100px;
     background: green;
+    // для колонок start вверх, end вниз
+    //align-items: stretch;
+    // justify-self растягиваем конткретно элемент
+    //justify-self: stretch;
   }
 }
