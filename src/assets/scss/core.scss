@@ -154,3 +154,31 @@
     //justify-self: stretch;
   }
 }
+
+.block {
+  display: grid;
+  grid-template-areas:
+    "image name"
+    "image position"
+    "social description"
+;
+  width: 100%;
+  height: 400px;
+  background: red;
+
+  &__image {
+    grid-area: image;
+  }
+
+  &__name {
+    grid-area: name;
+  }
+
+  &__position {
+    grid-area: position;
+  }
+
+  &__description {
+    grid-area: description;
+  }
+}
